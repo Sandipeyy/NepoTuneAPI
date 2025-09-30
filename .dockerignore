@@ -1,0 +1,14 @@
+.git
+.github
+.vercel
+.vscode
+dist
+node_modules
+.dockerignore
+.gitignore
+CHANGELOG.md
+Dockerfile
+LICENSE
+README.md
+vercel.json
+wrangler.toml

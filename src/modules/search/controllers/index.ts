@@ -1,0 +1,1 @@
+src/modules/search/controllers/index.ts

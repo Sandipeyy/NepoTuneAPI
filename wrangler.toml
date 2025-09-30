@@ -1,0 +1,6 @@
+name = "nepotune-api"
+main = "./src/server.ts"
+compatibility_date = "2025-09-30"
+
+[observability]
+enabled = true
