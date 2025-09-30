@@ -22,9 +22,9 @@ export const Meteors = ({ number }: { number: number }) => {
 }
 
 Home.get('/', (c) => {
-  const title = 'NepoTuneAPI'
+  const title = 'NepoTune API'
   const description =
-    'NepoTuneAPI is an unofficial JioSaavn API wrapper written in TypeScript, providing programmatic access to songs, albums, artists, playlists, and more.'
+    'Unofficial JioSaavn API wrapper in TypeScript. Access songs, albums, artists, playlists, and more.'
 
   return c.html(
     <html>
@@ -56,7 +56,10 @@ Home.get('/', (c) => {
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+          rel="stylesheet"
+        />
         <script src="https://cdn.tailwindcss.com" />
         <style
           dangerouslySetInnerHTML={{
@@ -90,101 +93,118 @@ Home.get('/', (c) => {
         <main class="mx-auto my-auto flex flex-col space-y-8 px-4 pb-8 md:py-10 relative overflow-y-hidden overflow-x-hidden">
           <Meteors number={15} />
 
-          <div class="flex flex-row items-center space-x-4 ml-6">
-            <svg class="sm:h-12 sm:w-12 h-8 w-8 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path
-                fill="#ff7d78"
-                d="M3.172 3.464C2 4.93 2 7.286 2 12c0 4.714 0 7.071 1.172 8.535C4.343 22 6.229 22 10 22h3.376A4.25 4.25 0 0 1 17 16.007V12.25a2.25 2.25 0 0 1 4.5 0a.75.75 0 0 0 .5.707V12c0-4.714 0-7.071-1.172-8.536C19.657 2 17.771 2 14 2h-4C6.229 2 4.343 2 3.172 3.464"
-                opacity=".5"
-              />
-              <path
-                fill="#ff7d78"
-                fill-rule="evenodd"
-                d="M8.25 12a3.75 3.75 0 1 1 7.5 0a3.75 3.75 0 0 1-7.5 0m11-.5a.75.75 0 0 1 .75.75a2.25 2.25 0 0 0 2.25 2.25a.75.75 0 0 1 0 1.5a3.734 3.734 0 0 1-2.25-.75v5a2.75 2.75 0 1 1-1.5-2.45v-5.55a.75.75 0 0 1 .75-.75m-.75 8.75a1.25 1.25 0 1 0-2.5 0a1.25 1.25 0 0 0 2.5 0"
-                clip-rule="evenodd"
-              />
-            </svg>
-            <p class="text-2xl md:text-4xl text-transparent font-bold leading-none bg-clip-text bg-gradient-to-r from-[#ff7d78] to-purple-600">
-              {title}
-              <span class="uppercase text-sm ml-3 text-gray-500 font-normal sm:hidden">Unofficial</span>
-            </p>
-            <p class="hidden sm:block animate-[borderAnimation_3s_linear_infinite] rounded bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 bg-[length:400%_400%] p-1">
-              <span class="block rounded px-1.5 py-0.5 text-xs text-white uppercase tracking-wider">Unofficial</span>
-            </p>
-          </div>
+          {/* Responsive Header */}
+          <header class="flex flex-col sm:flex-row items-center sm:items-end space-y-2 sm:space-y-0 sm:space-x-3 mb-6">
+            <img
+              src="https://raw.githubusercontent.com/Sandipeyy/NepoTuneAPI/main/assets/logo.png"
+              alt="NepoTune Logo"
+              class="w-12 sm:w-14 md:w-16 h-12 sm:h-14 md:h-16 object-contain"
+            />
+            <h1 class="flex flex-col sm:flex-row items-start sm:items-end space-y-1 sm:space-y-0 sm:space-x-2 text-center sm:text-left">
+              <span class="bg-gradient-to-r from-purple-500 to-gray-800 bg-clip-text text-transparent text-xl sm:text-3xl md:text-4xl font-bold">
+                NepoTune API
+              </span>
+              <span class="animate-[borderAnimation_3s_linear_infinite] rounded bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 bg-[length:400%_400%] p-1 text-xs sm:text-sm md:text-base uppercase tracking-wider text-white">
+                Unofficial
+              </span>
+            </h1>
+          </header>
 
-          <div class="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 gap-2 sm:gap-0 relative grid-flow-row">
+          {/* Responsive Grid */}
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 sm:gap-6 md:gap-8">
             <a
               target="_blank"
-              class="p-4 sm:p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4"
+              class="p-4 sm:p-6 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-2 md:col-span-4 lg:col-span-8"
               href="/docs"
             >
               <div class="flex flex-col">
                 <span class="text-xs uppercase bg-opacity-15 rounded text-center max-w-fit px-2 py-1 font-bold tracking-wide bg-red-500 text-red-500">
-                  Get Started
+                  Quick Start
                 </span>
-                <span class="text-neutral-200 font-bold text-lg sm:text-xl md:text-2xl mt-2">Explore the Docs</span>
+                <span class="text-neutral-200 font-bold text-lg sm:text-xl md:text-2xl mt-2">
+                  Explore the Docs
+                </span>
                 <div class="text-neutral-500 mt-2">
-                  Check out the documentation to learn how to use {title}.
+                  Learn how to use {title} with simple guides and examples.
                 </div>
               </div>
             </a>
 
             <a
               target="_blank"
-              class="p-4 sm:p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4"
+              class="p-4 sm:p-6 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-2 md:col-span-4 lg:col-span-8"
               href="https://github.com/Sandipeyy/NepoTuneAPI"
             >
               <div class="flex flex-col">
                 <span class="text-xs uppercase bg-opacity-15 rounded text-center max-w-fit px-2 py-1 font-bold tracking-wide bg-green-500 text-green-500">
-                  Open Source
+                  Source Code
                 </span>
-                <span class="text-neutral-200 font-bold text-lg sm:text-xl md:text-2xl mt-2">Open Source</span>
+                <span class="text-neutral-200 font-bold text-lg sm:text-xl md:text-2xl mt-2">
+                  View on GitHub
+                </span>
                 <div class="text-neutral-500 mt-2">
-                  NepoTuneAPI is open-source. Check out the source code on GitHub.
+                  NepoTune API is open-source. Check out the source code on github.
                 </div>
               </div>
             </a>
 
             <a
               target="_blank"
-              class="p-4 sm:p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4"
+              class="p-4 sm:p-6 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-2 md:col-span-4 lg:col-span-8"
               href="https://github.com/Sandipeyy/NepoTuneAPI/issues"
             >
               <div class="flex flex-col">
                 <span class="text-xs uppercase bg-opacity-15 rounded text-center max-w-fit px-2 py-1 font-bold tracking-wide bg-violet-500 text-violet-500">
                   Contribute
                 </span>
-                <span class="text-neutral-200 font-bold text-lg sm:text-xl md:text-2xl mt-2">Get Involved</span>
+                <span class="text-neutral-200 font-bold text-lg sm:text-xl md:text-2xl mt-2">
+                  Get Involved
+                </span>
                 <div class="text-neutral-500 mt-2">
-                  Encounter a bug or have a feature suggestion? Report it on GitHub or contribute by submitting a pull
-                  request.
+                  Found a bug or have a feature idea? Open an issue or submit a
+                  pull request.
                 </div>
               </div>
             </a>
 
-            <div class="p-4 sm:p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4">
+            {/* Socials */}
+            <div class="p-4 sm:p-6 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-2 md:col-span-4 lg:col-span-8">
               <div class="flex flex-col">
                 <span class="text-xs uppercase bg-opacity-15 rounded text-center max-w-fit px-2 py-1 font-bold tracking-wide bg-blue-500 text-blue-500">
-                  Contact
+                  Socials
                 </span>
-                <span class="text-neutral-200 font-bold text-lg sm:text-xl md:text-2xl mt-2">Sandip Gurung</span>
+                <span class="text-neutral-200 font-bold text-lg sm:text-xl md:text-2xl mt-2">
+                  Stay Connected
+                </span>
                 <div class="text-neutral-500 mt-2">
-                  Have a question or need help? Reach out on{' '}
+                  Find me on GitHub and Instagram.
+                </div>
+                <div class="flex flex-row space-x-4 mt-3">
                   <a
                     href="https://github.com/Sandipeyy"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:underline text-indigo-500"
+                    class="hover:text-indigo-400 text-indigo-500 transition-transform hover:scale-110"
                   >
                     GitHub
                   </a>
-                  .
+                  <a
+                    href="https://instagram.com/sandip.gg_"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hover:text-pink-400 text-pink-500 transition-transform hover:scale-110"
+                  >
+                    Instagram
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </main>
+
+        <footer class="text-center text-gray-600 text-sm py-4 border-t border-gray-800">
+          © {new Date().getFullYear()} NepoTune API. All rights reserved.
+        </footer>
       </body>
     </html>
   )

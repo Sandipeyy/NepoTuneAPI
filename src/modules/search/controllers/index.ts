@@ -1,1 +1,1 @@
-src/modules/search/controllers/index.ts
+export * from "./search.controller";

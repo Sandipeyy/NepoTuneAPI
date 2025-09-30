@@ -38,16 +38,19 @@ export class App {
   private initializeSwaggerUI() {
     this.app.doc31('/swagger', (c) => {
       const { protocol: urlProtocol, hostname, port } = new URL(c.req.url)
-      const protocol = c.req.header('x-forwarded-proto') ? `${c.req.header('x-forwarded-proto')}:` : urlProtocol
+      const protocol = c.req.header('x-forwarded-proto')
+        ? `${c.req.header('x-forwarded-proto')}:`
+        : urlProtocol
 
       return {
         openapi: '3.1.0',
         info: {
           version: '1.0.0',
-          title: 'NepoTuneAPI',
-          description: `# Introduction 
-          \nNepoTuneAPI is an unofficial API that allows users to download and fetch high-quality songs, albums, artists, and playlists from [JioSaavn](https://jiosaavn.com). 
-          It offers a fast, reliable, and easy-to-use API for developers. \n`,
+          title: 'NepoTune API',
+          description: `# Introduction
+          
+          NepoTune API is an unofficial JioSaavn API that provides fast, reliable access to songs, albums, artists, and playlists. 
+          Designed for developers, it enables high-quality music data fetching and downloading through a simple and consistent interface.`,
           contact: {
             name: 'Sandip Gurung',
             url: 'https://github.com/Sandipeyy/NepoTuneAPI'
@@ -58,7 +61,10 @@ export class App {
           }
         },
         servers: [
-          { url: `${protocol}//${hostname}${port ? `:${port}` : ''}`, description: 'Current environment' }
+          {
+            url: `${protocol}//${hostname}${port ? `:${port}` : ''}`,
+            description: 'Current environment'
+          }
         ]
       }
     })
@@ -87,14 +93,23 @@ export class App {
 
   private initializeRouteFallback() {
     this.app.notFound((ctx) => {
-      return ctx.json({ success: false, message: 'route not found, check docs at https://saavn.dev/docs' }, 404)
+      return ctx.json(
+        {
+          success: false,
+          message: 'Route not found, check docs at /docs'
+        },
+        404
+      )
     })
   }
 
   private initializeErrorHandler() {
     this.app.onError((err, ctx) => {
       const error = err as HTTPException
-      return ctx.json({ success: false, message: error.message }, error.status || 500)
+      return ctx.json(
+        { success: false, message: error.message },
+        error.status || 500
+      )
     })
   }
 
