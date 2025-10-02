@@ -8,7 +8,6 @@
 ![Stars](https://img.shields.io/github/stars/Sandipeyy/NepoTuneAPI?style=flat)
 ![Issues](https://img.shields.io/github/issues-raw/Sandipeyy/NepoTuneAPI)
 ![Forks](https://img.shields.io/github/forks/Sandipeyy/NepoTuneAPI?style=flat)
-![GitHub Release](https://img.shields.io/github/v/release/sumitkolhe/jiosaavn-api)
 
 <img src="./assets/preview.png" width="555px" alt="NepoTuneAPI Preview"/>
 
